@@ -51,7 +51,7 @@ export function ServicesSection() {
             В чём ваша выгода
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-balance">
-            Три причины выбрать <span className="text-primary">Nexus AI</span>
+            Шесть причин выбрать <span className="text-primary">Nexus AI</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
             Мы не просто подбираем ИИ-инструменты — мы берём на себя финансовый и операционный риск внедрения.

@@ -4,8 +4,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="md:col-span-1">
             <h3 className="text-xl font-bold mb-3">Nexus AI</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Независимый консалтинг по внедрению ИИ с финансовой гарантией результата.
@@ -13,9 +13,14 @@ export function Footer() {
             <p className="text-sm text-muted-foreground">© 2025 Nexus AI. Все права защищены.</p>
           </div>
 
-          <div>
+          <div className="md:col-span-1">
             <h4 className="font-semibold mb-4">Навигация</h4>
             <ul className="space-y-2">
+              <li>
+                <a href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Услуги
+                </a>
+              </li>
               <li>
                 <a href="#process" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Как мы работаем
@@ -39,15 +44,16 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="md:col-span-1">
             <h4 className="font-semibold mb-4">Контакты</h4>
             <a
               href="tel:+79133993003"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-3"
             >
               <Phone className="h-4 w-4" />
               +7 913 399-30-03
             </a>
+            <p className="text-sm text-muted-foreground mb-4">Пн – Пт: 9:00 – 18:00</p>
             <a
               href="#contact"
               className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
