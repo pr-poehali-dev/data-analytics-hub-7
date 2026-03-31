@@ -19,8 +19,8 @@ export default function Index() {
       <ProcessSection />
       <PortfolioSection />
       <TestimonialsSection />
-      <PricingSection />
       <ContactSection />
+      <PricingSection />
       <Footer />
     </main>
   )
