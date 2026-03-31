@@ -6,24 +6,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Phone, Send, Clock } from "lucide-react"
 
-const steps = [
-  {
-    number: "1",
-    title: "Оставьте заявку",
-    description: "Ответим в течение рабочего дня",
-  },
-  {
-    number: "2",
-    title: "15-минутный звонок",
-    description: "Находим узкое место и формулируем гипотезу",
-  },
-  {
-    number: "3",
-    title: "Получите план действий",
-    description: "Конкретные шаги и список проверенных вендоров под вашу задачу",
-  },
-]
-
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -126,23 +108,7 @@ export function ContactSection() {
             </Card>
           </div>
 
-          <div className="space-y-4">
-            {steps.map((step, index) => (
-              <Card key={index} className="border-none shadow-lg hover:border-primary/50 hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-lg flex-shrink-0">
-                      {step.number}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-base mb-1">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">{step.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-
+          <div className="space-y-6">
             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
