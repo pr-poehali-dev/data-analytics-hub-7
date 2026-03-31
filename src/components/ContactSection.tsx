@@ -4,7 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Send, Clock } from "lucide-react"
+import { Send, Check } from "lucide-react"
+
+const benefits = [
+  "Разберём, где ИИ даст быстрый результат",
+  "Без давления и обязательств",
+  "Конкретные гипотезы, а не общие слова",
+  "Список проверенных вендоров под вашу задачу",
+  "Оценка потенциального ROI для вашего бизнеса",
+]
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -43,118 +51,84 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <Card className="border-none shadow-xl bg-background">
-              <CardHeader>
-                <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Ваше имя *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Иван Петров"
-                      required
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">
-                      Телефон или Telegram *
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+7 900 000-00-00 или @username"
-                      required
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Ваш вопрос по внедрению ИИ
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Например: как ускорить обработку заявок от клиентов?"
-                      rows={5}
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div>
-                    <Button type="submit" size="lg" className="w-full sm:w-auto group">
-                      <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      Отправить заявку
-                    </Button>
-                    <p className="text-xs text-muted-foreground mt-3">
-                      Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                    </p>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="space-y-6">
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Телефон</h3>
-                    <a
-                      href="tel:+79133993003"
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      +7 913 399-30-03
-                    </a>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <Card className="border-none shadow-xl bg-background">
+            <CardHeader>
+              <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Ваше имя *
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Иван Петров"
+                    required
+                    className="transition-all focus:scale-[1.02]"
+                  />
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
-                    <Clock className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Время работы</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Пн – Пт: 9:00 – 18:00
-                      <br />
-                      Ответим в течение рабочего дня
-                    </p>
-                  </div>
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-medium">
+                    Телефон или Telegram *
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+7 900 000-00-00 или @username"
+                    required
+                    className="transition-all focus:scale-[1.02]"
+                  />
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium">
+                    Ваш вопрос по внедрению ИИ
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Например: как ускорить обработку заявок от клиентов?"
+                    rows={5}
+                    className="transition-all focus:scale-[1.02]"
+                  />
+                </div>
+                <div>
+                  <Button type="submit" size="lg" className="w-full sm:w-auto group">
+                    <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    Отправить заявку
+                  </Button>
+                  <p className="text-xs text-muted-foreground mt-3">
+                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                  </p>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
 
-            <Card className="border-none shadow-lg bg-primary text-primary-foreground">
-              <CardContent className="p-6">
-                <h3 className="font-bold text-lg mb-2">Эскроу-гарантия</h3>
-                <p className="text-sm opacity-90 leading-relaxed">
-                  Ваши деньги в безопасности. Вендор получает оплату только после подтверждения KPI.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="border-primary shadow-xl bg-gradient-to-b from-background to-primary/5">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-2xl">Что вы получите</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-4">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm leading-relaxed">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
