@@ -7,10 +7,9 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false)
 
   const menuItems = [
-    { href: "#about", label: "О нас" },
-    { href: "#services", label: "Услуги" },
-    { href: "#portfolio", label: "Портфолио" },
-    { href: "#pricing", label: "Тарифы" },
+    { href: "#process", label: "Как мы работаем" },
+    { href: "#about", label: "Гарантии" },
+    { href: "#portfolio", label: "Кейсы" },
     { href: "#contact", label: "Контакты" },
   ]
 
@@ -38,6 +37,13 @@ export function MobileMenu() {
               {item.label}
             </a>
           ))}
+          <a
+            href="tel:+79133993003"
+            onClick={() => setOpen(false)}
+            className="text-base font-semibold text-primary hover:bg-primary/5 transition-all py-3 px-4 rounded-lg mt-2"
+          >
+            +7 913 399-30-03
+          </a>
         </nav>
       </SheetContent>
     </Sheet>

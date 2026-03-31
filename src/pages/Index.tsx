@@ -17,8 +17,8 @@ export default function Index() {
       <ServicesSection />
       <AboutSection />
       <ProcessSection />
-      <TestimonialsSection />
       <PortfolioSection />
+      <TestimonialsSection />
       <PricingSection />
       <ContactSection />
       <Footer />

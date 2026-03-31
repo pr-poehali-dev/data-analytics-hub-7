@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react"
+import { Phone } from "lucide-react"
 
 export function Footer() {
   return (
@@ -6,28 +6,29 @@ export function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">CodeCraft</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              2025 CodeCraft. Все права защищены.
+            <h3 className="text-xl font-bold mb-3">Nexus AI</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              Независимый консалтинг по внедрению ИИ с финансовой гарантией результата.
             </p>
+            <p className="text-sm text-muted-foreground">© 2025 Nexus AI. Все права защищены.</p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4">Навигация</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  О нас
+                <a href="#process" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Как мы работаем
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Услуги
+                <a href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Гарантии
                 </a>
               </li>
               <li>
                 <a href="#portfolio" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Портфолио
+                  Кейсы
                 </a>
               </li>
               <li>
@@ -39,36 +40,20 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Мы в соцсетях</h4>
-            <div className="flex gap-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </a>
-            </div>
+            <h4 className="font-semibold mb-4">Контакты</h4>
+            <a
+              href="tel:+79133993003"
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"
+            >
+              <Phone className="h-4 w-4" />
+              +7 913 399-30-03
+            </a>
+            <a
+              href="#contact"
+              className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            >
+              Записаться на аудит →
+            </a>
           </div>
         </div>
       </div>

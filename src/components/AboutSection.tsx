@@ -2,19 +2,19 @@ import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle2, Sparkles } from "lucide-react"
 
 const values = [
-  { title: "Качество", description: "Высококлассные решения, соответствующие самым высоким стандартам" },
-  { title: "Доступность", description: "Профессиональные сайты по честным и прозрачным ценам" },
-  { title: "Прозрачность", description: "Четкая коммуникация без скрытых платежей" },
-  { title: "Клиентоориентированность", description: "Ваши цели и пожелания всегда в приоритете" },
-  { title: "Масштабируемость", description: "Сайты, которые растут вместе с вашим бизнесом" },
-  { title: "Гибкость", description: "Быстрая адаптация под меняющиеся потребности" },
+  { title: "Независимость", description: "Не продаём свой софт — ищем лучшее решение на рынке под вашу задачу" },
+  { title: "Финансовая гарантия", description: "Деньги возвращаются, если вендор не выполнит KPI по договору" },
+  { title: "Прозрачность", description: "Никаких скрытых комиссий и аффилированных вендоров" },
+  { title: "Эскроу-протокол", description: "Оплата поступает подрядчику только после подтверждённого результата" },
+  { title: "Верифицированная база", description: "Только проверенные вендоры, прошедшие технический и коммерческий аудит" },
+  { title: "Контроль результата", description: "Сопровождаем внедрение до подтверждения всех KPI в договоре" },
 ]
 
 const stats = [
-  { number: "50+", label: "Проектов" },
-  { number: "45+", label: "Довольных клиентов" },
-  { number: "30+", label: "Созданных логотипов" },
-  { number: "3+", label: "Года опыта" },
+  { number: "200%+", label: "Средний ROI у клиентов" },
+  { number: "100%", label: "Гарантия возврата" },
+  { number: "15 мин", label: "Бесплатная диагностика" },
+  { number: "90%", label: "Некомпетентных вендоров отсеяли" },
 ]
 
 export function AboutSection() {
@@ -27,19 +27,19 @@ export function AboutSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
             <Sparkles className="h-4 w-4" />
-            О CodeCraft
+            Гарантии
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Качество, которое{" "}
+            Финансовая защита,{" "}
             <span className="text-primary relative">
-              впечатляет
+              которой нет у других
               <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8" fill="none">
                 <path d="M0 4C50 2 150 6 200 4" stroke="currentColor" strokeWidth="2" className="text-primary" />
               </svg>
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Создание сайта не должно быть дорогим. Мы разрабатываем индивидуальные решения, которые идеально соответствуют пожеланиям каждого клиента.
+            Внедрение ИИ не должно быть риском. Мы берём на себя финансовую и операционную ответственность за результат — это и есть наше главное отличие от конкурентов.
           </p>
         </div>
 
