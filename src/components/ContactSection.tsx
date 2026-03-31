@@ -26,12 +26,12 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
+    <section id="contact" className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
       <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
             Бесплатно
           </div>

@@ -30,7 +30,7 @@ const benefits = [
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="pricing" className="py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />

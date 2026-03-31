@@ -14,105 +14,118 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden py-10">
+      {/* Background glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-[500px] h-[500px] rounded-full bg-muted/40 blur-3xl animate-pulse"
-          style={{ top: "20%", left: "10%", animationDuration: "4s" }}
+          className="absolute w-[700px] h-[500px] rounded-full blur-3xl animate-pulse"
+          style={{
+            top: "-15%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "radial-gradient(ellipse, hsl(210 100% 56% / 0.13), transparent 70%)",
+            animationDuration: "4s",
+          }}
         />
         <div
-          className="absolute w-[400px] h-[400px] rounded-full bg-muted/30 blur-3xl animate-pulse"
-          style={{ bottom: "10%", right: "15%", animationDuration: "6s", animationDelay: "1s" }}
+          className="absolute w-[350px] h-[350px] rounded-full blur-3xl animate-pulse"
+          style={{
+            bottom: "5%",
+            right: "5%",
+            background: "radial-gradient(circle, hsl(196 100% 50% / 0.07), transparent 70%)",
+            animationDuration: "6s",
+            animationDelay: "1s",
+          }}
         />
         <div
-          className="absolute w-[300px] h-[300px] rounded-full bg-muted/20 blur-3xl transition-all duration-1000 ease-out"
-          style={{ left: `${mousePosition.x - 150}px`, top: `${mousePosition.y - 150}px` }}
+          className="absolute w-[220px] h-[220px] rounded-full blur-3xl transition-all duration-1000 ease-out"
+          style={{
+            left: `${mousePosition.x - 110}px`,
+            top: `${mousePosition.y - 110}px`,
+            background: "radial-gradient(circle, hsl(210 100% 56% / 0.06), transparent 70%)",
+          }}
         />
       </div>
 
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating icons — hidden on small screens */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
         <Brain
-          className="absolute text-muted-foreground/30 animate-float"
-          style={{ top: "15%", left: "15%", animationDelay: "0s" }}
-          size={40}
+          className="absolute text-primary/15 animate-float"
+          style={{ top: "20%", left: "6%", animationDelay: "0s" }}
+          size={36}
         />
         <ShieldCheck
-          className="absolute text-muted-foreground/30 animate-float"
-          style={{ top: "25%", right: "20%", animationDelay: "2s" }}
-          size={35}
+          className="absolute text-primary/15 animate-float"
+          style={{ top: "20%", right: "6%", animationDelay: "2s" }}
+          size={32}
         />
         <Sparkles
-          className="absolute text-muted-foreground/30 animate-float"
-          style={{ bottom: "20%", left: "20%", animationDelay: "1s" }}
-          size={30}
+          className="absolute text-primary/15 animate-float"
+          style={{ bottom: "25%", left: "10%", animationDelay: "1s" }}
+          size={26}
         />
       </div>
 
       <div className="container mx-auto text-center max-w-5xl relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-in-up">
-          <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">Независимый ИИ-консалтинг</span>
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-5 animate-fade-in-up backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <span className="text-sm font-medium text-primary">Независимая ИИ-интеграция</span>
         </div>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-fade-in-up text-balance">
+        {/* Headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-5 animate-fade-in-up leading-[1.1]">
           Внедряйте ИИ в бизнес{" "}
-          <span className="text-primary relative inline-block">
+          <span className="text-gradient relative inline-block">
             без риска
-            <svg
-              className="absolute -bottom-2 left-0 w-full"
-              height="12"
-              viewBox="0 0 200 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2 10C50 5 150 5 198 10"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                className="text-primary"
-              />
+            <svg className="absolute -bottom-1 left-0 w-full opacity-50" height="5" viewBox="0 0 200 5" fill="none">
+              <path d="M2 3C60 1 140 1 198 3" stroke="hsl(210,100%,56%)" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </span>{" "}
           потерять бюджет
         </h1>
 
-        <p className="text-xl sm:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
-          Мы проведём независимый аудит ваших процессов, подберём идеальное ИИ-решение из сотен протестированных вендоров и финансово гарантируем результат через систему эскроу.
+        {/* Subheading */}
+        <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
+          Независимый аудит процессов, подбор ИИ-решения из сотен протестированных вендоров и финансовая гарантия результата через систему эскроу.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up animate-delay-200 mb-12">
+        {/* CTA buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up animate-delay-200 mb-10">
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
+            className="w-full sm:w-auto font-semibold px-8 py-5 text-base group shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all"
             asChild
           >
             <a href="#contact">
               Записаться на аудит
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
           <Button
             size="lg"
             variant="outline"
-            className="border-2 border-primary/20 text-foreground hover:bg-primary/5 hover:border-primary font-semibold px-8 py-6 text-lg backdrop-blur-sm bg-transparent"
+            className="w-full sm:w-auto border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary font-medium px-8 py-5 text-base bg-transparent"
             asChild
           >
             <a href="#process">Как это работает?</a>
           </Button>
         </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground animate-fade-in-up animate-delay-300">
+        {/* Stats — compact, no duplication */}
+        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-muted-foreground animate-fade-in-up animate-delay-300">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             <span>ROI 200%+ подтверждённый</span>
           </div>
+          <div className="w-px h-4 bg-border hidden sm:block" />
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" style={{ animationDelay: "0.5s" }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" style={{ animationDelay: "0.5s" }} />
             <span>100% гарантия возврата</span>
           </div>
+          <div className="w-px h-4 bg-border hidden sm:block" />
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" style={{ animationDelay: "1s" }} />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" style={{ animationDelay: "1s" }} />
             <span>15 мин бесплатная диагностика</span>
           </div>
         </div>

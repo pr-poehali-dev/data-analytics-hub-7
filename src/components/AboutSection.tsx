@@ -19,13 +19,13 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative">
+    <section id="about" className="py-14 px-4 sm:px-6 lg:px-8 relative">
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 mb-3 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold">
             <Sparkles className="h-4 w-4" />
             Гарантии
           </div>

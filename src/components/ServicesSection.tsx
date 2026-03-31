@@ -42,19 +42,21 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="services" className="py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 animate-pulse" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mx-auto block w-fit">
-          В чём ваша выгода
+        <div className="text-center mb-10">
+          <div className="inline-block mb-3 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+            В чём ваша выгода
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-balance">
+            Три причины выбрать <span className="text-primary">Nexus AI</span>
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
+            Мы не просто подбираем ИИ-инструменты — мы берём на себя финансовый и операционный риск внедрения.
+          </p>
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          Три причины выбрать <span className="text-primary">Nexus AI</span>
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed text-lg">
-          Мы не просто подбираем ИИ-инструменты — мы берём на себя финансовый и операционный риск внедрения.
-        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <Card

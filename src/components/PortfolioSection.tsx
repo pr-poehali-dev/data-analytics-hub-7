@@ -42,10 +42,10 @@ const cases = [
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-14 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
+        <div className="text-center mb-10">
+          <div className="inline-block mb-3 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold">
             Сценарии окупаемости
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
