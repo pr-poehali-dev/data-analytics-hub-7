@@ -4,25 +4,44 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Send, Clock } from "lucide-react"
+import { Phone, Send, Clock, MessageCircle, CheckCircle } from "lucide-react"
+import func2url from "../../backend/func2url.json"
+
+const PHONE = "+79133993003"
+const WHATSAPP_NUMBER = "79133993003"
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    message: "",
-  })
+  const [formData, setFormData] = useState({ name: "", phone: "", message: "" })
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMsg, setErrorMsg] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("[nexus] Form submitted:", formData)
+    setStatus("loading")
+    setErrorMsg("")
+
+    try {
+      const res = await fetch(func2url["send-telegram"], {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json()
+      if (res.ok && data.ok) {
+        setStatus("success")
+        setFormData({ name: "", phone: "", message: "" })
+      } else {
+        setStatus("error")
+        setErrorMsg(data.error || "Ошибка отправки")
+      }
+    } catch {
+      setStatus("error")
+      setErrorMsg("Нет соединения. Попробуйте ещё раз.")
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   return (
@@ -50,60 +69,69 @@ export function ContactSection() {
                 <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Ваше имя *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Иван Петров"
-                      required
-                      className="transition-all focus:scale-[1.02]"
-                    />
+                {status === "success" ? (
+                  <div className="flex flex-col items-center justify-center py-12 gap-4 text-center">
+                    <CheckCircle className="h-14 w-14 text-primary" />
+                    <h3 className="text-xl font-semibold">Заявка отправлена!</h3>
+                    <p className="text-muted-foreground">Мы получили ваше сообщение и свяжемся в течение рабочего дня.</p>
+                    <Button variant="outline" onClick={() => setStatus("idle")}>Отправить ещё</Button>
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">
-                      Телефон или Telegram *
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+7 900 000-00-00 или @username"
-                      required
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Ваш вопрос по внедрению ИИ
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Например: как ускорить обработку заявок от клиентов?"
-                      rows={5}
-                      className="transition-all focus:scale-[1.02]"
-                    />
-                  </div>
-                  <div>
-                    <Button type="submit" size="lg" className="w-full sm:w-auto group">
-                      <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      Отправить заявку
-                    </Button>
-                    <p className="text-xs text-muted-foreground mt-3">
-                      Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                    </p>
-                  </div>
-                </form>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium">Ваше имя *</label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Иван Петров"
+                        required
+                        className="transition-all focus:scale-[1.02]"
+                        disabled={status === "loading"}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium">Телефон или Telegram *</label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+7 900 000-00-00 или @username"
+                        required
+                        className="transition-all focus:scale-[1.02]"
+                        disabled={status === "loading"}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium">Ваш вопрос по внедрению ИИ</label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Например: как ускорить обработку заявок от клиентов?"
+                        rows={5}
+                        className="transition-all focus:scale-[1.02]"
+                        disabled={status === "loading"}
+                      />
+                    </div>
+                    {status === "error" && (
+                      <p className="text-sm text-destructive">{errorMsg}</p>
+                    )}
+                    <div>
+                      <Button type="submit" size="lg" className="w-full sm:w-auto group" disabled={status === "loading"}>
+                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        {status === "loading" ? "Отправляем..." : "Отправить заявку"}
+                      </Button>
+                      <p className="text-xs text-muted-foreground mt-3">
+                        Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                      </p>
+                    </div>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -116,13 +144,47 @@ export function ContactSection() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Телефон</h3>
+                    <h3 className="font-semibold mb-2">Позвонить</h3>
                     <a
-                      href="tel:+79133993003"
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      href={`tel:${PHONE}`}
+                      className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors mb-3"
                     >
-                      +7 913 399-30-03
+                      {PHONE.replace("+7", "+7 ").replace(/(\d{3})(\d{3})(\d{2})(\d{2})$/, "$1 $2-$3-$4")}
                     </a>
+                    <Button size="sm" asChild className="w-full">
+                      <a href={`tel:${PHONE}`}>
+                        <Phone className="mr-2 h-3.5 w-3.5" />
+                        Позвонить сейчас
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-lg bg-green-100 text-green-600 group-hover:bg-green-500 group-hover:text-white transition-all duration-300 group-hover:scale-110 dark:bg-green-900/30 dark:text-green-400">
+                    <MessageCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">WhatsApp</h3>
+                    <p className="text-sm text-muted-foreground mb-3">Напишите — ответим быстро</p>
+                    <Button
+                      size="sm"
+                      className="w-full bg-green-500 hover:bg-green-600 text-white"
+                      asChild
+                    >
+                      <a
+                        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Здравствуйте! Хочу узнать о внедрении ИИ в мой бизнес.")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MessageCircle className="mr-2 h-3.5 w-3.5" />
+                        Написать в WhatsApp
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </CardContent>
