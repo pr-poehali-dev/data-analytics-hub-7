@@ -69,11 +69,24 @@ export function ContactSection() {
               </CardHeader>
               <CardContent>
                 {status === "success" ? (
-                  <div className="flex flex-col items-center justify-center py-12 gap-4 text-center">
-                    <CheckCircle className="h-14 w-14 text-primary" />
-                    <h3 className="text-xl font-semibold">Заявка отправлена!</h3>
-                    <p className="text-muted-foreground">Мы получили ваше сообщение и свяжемся в течение рабочего дня.</p>
-                    <Button variant="outline" onClick={() => setStatus("idle")}>Отправить ещё</Button>
+                  <div className="flex flex-col items-center justify-center py-14 gap-5 text-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping" />
+                      <div className="relative p-4 rounded-full bg-primary/10">
+                        <CheckCircle className="h-12 w-12 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">Отлично! Заявка принята 🎉</h3>
+                      <p className="text-muted-foreground max-w-sm leading-relaxed">
+                        Ваша заявка уже у нас. Свяжемся с вами в течение рабочего дня, чтобы назначить бесплатную 15-минутную диагностику.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                      <Button variant="outline" size="sm" onClick={() => setStatus("idle")}>
+                        Отправить ещё одну
+                      </Button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -183,7 +196,7 @@ export function ContactSection() {
               <CardContent className="p-6">
                 <h3 className="font-bold text-lg mb-2">Эскроу-гарантия</h3>
                 <p className="text-sm opacity-90 leading-relaxed">
-                  Ваши деньги в безопасности. Вендор получает оплату только после подтверждения KPI.
+                  При работе с нами ваши деньги в безопасности. Вендор получает оплату только после подтверждения KPI.
                 </p>
               </CardContent>
             </Card>
