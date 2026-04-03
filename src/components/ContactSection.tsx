@@ -4,11 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Send, Clock, MessageCircle, CheckCircle } from "lucide-react"
+import { Phone, Send, Clock, CheckCircle } from "lucide-react"
 import func2url from "../../backend/func2url.json"
 
 const PHONE = "+79133993003"
-const WHATSAPP_NUMBER = "79133993003"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" })
@@ -155,34 +154,6 @@ export function ContactSection() {
                       <a href={`tel:${PHONE}`}>
                         <Phone className="mr-2 h-3.5 w-3.5" />
                         Позвонить сейчас
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-green-100 text-green-600 group-hover:bg-green-500 group-hover:text-white transition-all duration-300 group-hover:scale-110 dark:bg-green-900/30 dark:text-green-400">
-                    <MessageCircle className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">WhatsApp</h3>
-                    <p className="text-sm text-muted-foreground mb-3">Напишите — ответим быстро</p>
-                    <Button
-                      size="sm"
-                      className="w-full bg-green-500 hover:bg-green-600 text-white"
-                      asChild
-                    >
-                      <a
-                        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Здравствуйте! Хочу узнать о внедрении ИИ в мой бизнес.")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <MessageCircle className="mr-2 h-3.5 w-3.5" />
-                        Написать в WhatsApp
                       </a>
                     </Button>
                   </div>
