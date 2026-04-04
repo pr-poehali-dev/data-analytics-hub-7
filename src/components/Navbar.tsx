@@ -2,6 +2,7 @@ import { Logo } from "@/components/Logo"
 import { MobileMenu } from "@/components/MobileMenu"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import { COMPANY, NAVBAR } from "@/content"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -27,29 +28,22 @@ export function Navbar() {
           </a>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#process" className="text-sm font-medium hover:text-primary transition-colors">
-              Как мы работаем
-            </a>
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
-              Гарантии
-            </a>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">
-              Кейсы
-            </a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
-              Контакты
-            </a>
+            {NAVBAR.links.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm font-medium hover:text-primary transition-colors">
+                {link.label}
+              </a>
+            ))}
           </div>
 
           <div className="flex items-center gap-3">
             <a
-              href="tel:+79133993003"
+              href={`tel:${COMPANY.phone}`}
               className="hidden md:block text-sm font-semibold hover:text-primary transition-colors"
             >
-              +7 913 399-30-03
+              {COMPANY.phoneDisplay}
             </a>
             <Button size="sm" asChild>
-              <a href="#contact">Записаться на аудит</a>
+              <a href="#contact">{NAVBAR.ctaButton}</a>
             </Button>
             <MobileMenu />
           </div>

@@ -1,33 +1,7 @@
 import { useEffect, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
-
-const testimonials = [
-  {
-    quote:
-      "Nexus AI помог нам внедрить AI-ассистента в отдел продаж за 6 недель. Конверсия выросла на 18%. Главное — деньги лежали в эскроу до подтверждения результата. Никакого риска.",
-    name: "Алексей К.",
-    role: "Директор по продажам, SaaS-компания",
-  },
-  {
-    quote:
-      "Мы потратили полгода, пытаясь выбрать подходящий чат-бот для поддержки. Nexus AI за две недели дали нам сравнение трёх вендоров с реальными цифрами. Внедрили, нагрузка на операторов упала на 55%.",
-    name: "Марина В.",
-    role: "Операционный директор, e-commerce",
-  },
-  {
-    quote:
-      "Скептически относился к ИИ-консалтингу, пока не увидел их эскроу-протокол. Реальная финансовая гарантия — это серьёзно. Результат подтверждён: документооборот сократился вдвое.",
-    name: "Игорь Р.",
-    role: "Финансовый директор, производственная компания",
-  },
-  {
-    quote:
-      "Nexus AI нашли нам решение, о котором мы даже не знали. Независимость от вендоров — это их реальное преимущество. Никаких навязанных продуктов, только то, что работает для нас.",
-    name: "Светлана М.",
-    role: "CEO, маркетинговое агентство",
-  },
-]
+import { TESTIMONIALS } from "@/content"
 
 export function TestimonialsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -62,15 +36,15 @@ export function TestimonialsSection() {
     <section className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
-          Что говорят наши клиенты
+          {TESTIMONIALS.title}
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed">
-          Реальные результаты с измеримым ROI. Финансовая гарантия работает — клиенты это ценят.
+          {TESTIMONIALS.subtitle}
         </p>
 
         <div className="relative">
           <div ref={scrollRef} className="flex gap-6 overflow-x-hidden" style={{ scrollBehavior: "auto" }}>
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
+            {[...TESTIMONIALS.items, ...TESTIMONIALS.items].map((testimonial, index) => (
               <Card key={index} className="flex-shrink-0 w-[90vw] sm:w-[450px] border-none shadow-lg">
                 <CardContent className="p-8">
                   <Quote className="h-8 w-8 text-primary mb-4" />

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles, Brain, ShieldCheck } from "lucide-react"
 import { useEffect, useState } from "react"
+import { HERO } from "@/content"
 
 export function HeroSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -70,24 +71,24 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-5 animate-fade-in-up backdrop-blur-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm font-medium text-primary">Независимая ИИ-интеграция</span>
+          <span className="text-sm font-medium text-primary">{HERO.badge}</span>
         </div>
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-5 animate-fade-in-up leading-[1.1]">
-          Внедряйте ИИ в бизнес{" "}
+          {HERO.headline}{" "}
           <span className="text-gradient relative inline-block">
-            без риска
+            {HERO.headlineAccent}
             <svg className="absolute -bottom-1 left-0 w-full opacity-50" height="5" viewBox="0 0 200 5" fill="none">
               <path d="M2 3C60 1 140 1 198 3" stroke="hsl(210,100%,56%)" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </span>{" "}
-          потерять бюджет
+          {HERO.headlineSuffix}
         </h1>
 
         {/* Subheading */}
         <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up animate-delay-100 leading-relaxed">
-          Независимый аудит процессов, подбор ИИ-решения из сотен протестированных вендоров и финансовая гарантия результата через систему эскроу.
+          {HERO.subheading}
         </p>
 
         {/* CTA buttons */}
@@ -98,7 +99,7 @@ export function HeroSection() {
             asChild
           >
             <a href="#contact">
-              Записаться на аудит
+              {HERO.primaryButton}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
@@ -108,26 +109,19 @@ export function HeroSection() {
             className="w-full sm:w-auto border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary font-medium px-8 py-5 text-base bg-transparent"
             asChild
           >
-            <a href="#process">Как это работает?</a>
+            <a href="#process">{HERO.secondaryButton}</a>
           </Button>
         </div>
 
-        {/* Stats — compact, no duplication */}
+        {/* Stats */}
         <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-muted-foreground animate-fade-in-up animate-delay-300">
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span>ROI 200%+ подтверждённый</span>
-          </div>
-          <div className="w-px h-4 bg-border hidden sm:block" />
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" style={{ animationDelay: "0.5s" }} />
-            <span>100% гарантия возврата</span>
-          </div>
-          <div className="w-px h-4 bg-border hidden sm:block" />
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" style={{ animationDelay: "1s" }} />
-            <span>15 мин бесплатная диагностика</span>
-          </div>
+          {HERO.stats.map((stat, index) => (
+            <div key={index} className="flex items-center gap-2">
+              {index > 0 && <div className="w-px h-4 bg-border hidden sm:block" />}
+              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" style={{ animationDelay: `${index * 0.5}s` }} />
+              <span>{stat}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

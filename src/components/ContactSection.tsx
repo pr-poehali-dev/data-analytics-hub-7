@@ -6,8 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Phone, Send, Clock, CheckCircle } from "lucide-react"
 import func2url from "../../backend/func2url.json"
-
-const PHONE = "+79133993003"
+import { COMPANY, CONTACT } from "@/content"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ name: "", phone: "", message: "" })
@@ -51,13 +50,13 @@ export function ContactSection() {
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-10">
           <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-            Бесплатно
+            {CONTACT.badge}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Бесплатная <span className="text-primary">15-минутная диагностика</span>
+            {CONTACT.title} <span className="text-primary">{CONTACT.titleAccent}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Разберём, где ИИ даст быстрый результат именно в вашем бизнесе. Без давления и обязательств.
+            {CONTACT.subtitle}
           </p>
         </div>
 
@@ -65,7 +64,7 @@ export function ContactSection() {
           <div className="lg:col-span-2">
             <Card className="border-none shadow-xl bg-background">
               <CardHeader>
-                <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
+                <CardTitle className="text-2xl">{CONTACT.formTitle}</CardTitle>
               </CardHeader>
               <CardContent>
                 {status === "success" ? (
@@ -77,54 +76,54 @@ export function ContactSection() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-2">Отлично! Заявка принята 🎉</h3>
+                      <h3 className="text-2xl font-bold mb-2">{CONTACT.successTitle}</h3>
                       <p className="text-muted-foreground max-w-sm leading-relaxed">
-                        Ваша заявка уже у нас. Свяжемся с вами в течение рабочего дня, чтобы назначить бесплатную 15-минутную диагностику.
+                        {CONTACT.successText}
                       </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3 mt-2">
                       <Button variant="outline" size="sm" onClick={() => setStatus("idle")}>
-                        Отправить ещё одну
+                        {CONTACT.sendAnother}
                       </Button>
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">Ваше имя *</label>
+                      <label htmlFor="name" className="text-sm font-medium">{CONTACT.fields.name.label}</label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Иван Петров"
+                        placeholder={CONTACT.fields.name.placeholder}
                         required
                         className="transition-all focus:scale-[1.02]"
                         disabled={status === "loading"}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium">Телефон или Telegram *</label>
+                      <label htmlFor="phone" className="text-sm font-medium">{CONTACT.fields.phone.label}</label>
                       <Input
                         id="phone"
                         name="phone"
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+7 900 000-00-00 или @username"
+                        placeholder={CONTACT.fields.phone.placeholder}
                         required
                         className="transition-all focus:scale-[1.02]"
                         disabled={status === "loading"}
                       />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium">Ваш вопрос по внедрению ИИ</label>
+                      <label htmlFor="message" className="text-sm font-medium">{CONTACT.fields.message.label}</label>
                       <Textarea
                         id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Например: как ускорить обработку заявок от клиентов?"
+                        placeholder={CONTACT.fields.message.placeholder}
                         rows={5}
                         className="transition-all focus:scale-[1.02]"
                         disabled={status === "loading"}
@@ -136,10 +135,10 @@ export function ContactSection() {
                     <div>
                       <Button type="submit" size="lg" className="w-full sm:w-auto group" disabled={status === "loading"}>
                         <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        {status === "loading" ? "Отправляем..." : "Отправить заявку"}
+                        {status === "loading" ? CONTACT.submittingButton : CONTACT.submitButton}
                       </Button>
                       <p className="text-xs text-muted-foreground mt-3">
-                        Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                        {CONTACT.privacyNote}
                       </p>
                     </div>
                   </form>
@@ -156,17 +155,17 @@ export function ContactSection() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Позвонить</h3>
+                    <h3 className="font-semibold mb-2">{CONTACT.callCard.title}</h3>
                     <a
-                      href={`tel:${PHONE}`}
+                      href={`tel:${COMPANY.phone}`}
                       className="block text-sm font-medium text-primary hover:text-primary/80 transition-colors mb-3"
                     >
-                      {PHONE.replace("+7", "+7 ").replace(/(\d{3})(\d{3})(\d{2})(\d{2})$/, "$1 $2-$3-$4")}
+                      {COMPANY.phoneDisplay}
                     </a>
                     <Button size="sm" asChild className="w-full">
-                      <a href={`tel:${PHONE}`}>
+                      <a href={`tel:${COMPANY.phone}`}>
                         <Phone className="mr-2 h-3.5 w-3.5" />
-                        Позвонить сейчас
+                        {CONTACT.callCard.button}
                       </a>
                     </Button>
                   </div>
@@ -181,11 +180,11 @@ export function ContactSection() {
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Время работы</h3>
+                    <h3 className="font-semibold mb-1">{CONTACT.hoursCard.title}</h3>
                     <p className="text-sm text-muted-foreground">
-                      Пн – Пт: 9:00 – 18:00
+                      {CONTACT.hoursCard.hours}
                       <br />
-                      Ответим в течение рабочего дня
+                      {CONTACT.hoursCard.note}
                     </p>
                   </div>
                 </div>
@@ -194,9 +193,9 @@ export function ContactSection() {
 
             <Card className="border-none shadow-lg bg-primary text-primary-foreground">
               <CardContent className="p-6">
-                <h3 className="font-bold text-lg mb-2">Эскроу-гарантия</h3>
+                <h3 className="font-bold text-lg mb-2">{CONTACT.escrowCard.title}</h3>
                 <p className="text-sm opacity-90 leading-relaxed">
-                  При работе с нами ваши деньги в безопасности. Вендор получает оплату только после подтверждения KPI.
+                  {CONTACT.escrowCard.text}
                 </p>
               </CardContent>
             </Card>

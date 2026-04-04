@@ -1,44 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import Icon from "@/components/ui/icon"
-
-const cases = [
-  {
-    category: "Отдел продаж",
-    problem: "Медленная обработка входящих заявок — менеджеры отвечали через 3–5 часов",
-    solution: "AI-ассистент с мгновенной квалификацией лидов и авто-ответом",
-    result: "+15% конверсии",
-    period: "за 2 месяца",
-    icon: "Users",
-    color: "from-blue-500/20 to-blue-600/5",
-  },
-  {
-    category: "Служба поддержки",
-    problem: "80% обращений — типовые вопросы, которые занимали время операторов",
-    solution: "Чат-бот на базе базы знаний компании с передачей сложных кейсов",
-    result: "-60% нагрузки",
-    period: "на операторов",
-    icon: "HeadphonesIcon",
-    color: "from-purple-500/20 to-purple-600/5",
-  },
-  {
-    category: "Бухгалтерия / документы",
-    problem: "Ручная обработка счетов и актов — 2–3 часа в день на рутину",
-    solution: "AI-разбор входящих документов с автозаполнением в учётную систему",
-    result: "-80% времени",
-    period: "на документооборот",
-    icon: "FileText",
-    color: "from-green-500/20 to-green-600/5",
-  },
-  {
-    category: "Маркетинг",
-    problem: "Дорогой трафик при низкой конверсии рекламных кампаний",
-    solution: "Автоматическая оптимизация аудиторий и A/B текстов через AI",
-    result: "-30% стоимость лида",
-    period: "за 6 недель",
-    icon: "BarChart2",
-    color: "from-orange-500/20 to-orange-600/5",
-  },
-]
+import { PORTFOLIO } from "@/content"
 
 export function PortfolioSection() {
   return (
@@ -46,18 +8,18 @@ export function PortfolioSection() {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-10">
           <div className="inline-block mb-3 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-            Сценарии окупаемости
+            {PORTFOLIO.badge}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            Как ИИ работает в <span className="text-primary">реальном бизнесе</span>
+            {PORTFOLIO.title} <span className="text-primary">{PORTFOLIO.titleAccent}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Типовые задачи, которые мы решаем — с измеримым результатом и чётким KPI в договоре.
+            {PORTFOLIO.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {cases.map((item, index) => (
+          {PORTFOLIO.cases.map((item, index) => (
             <Card
               key={index}
               className="group overflow-hidden border border-border hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1"

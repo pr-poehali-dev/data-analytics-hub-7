@@ -1,32 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-const steps = [
-  {
-    number: "1",
-    title: "Оставьте заявку",
-    description: "Ответим в течение рабочего дня",
-  },
-  {
-    number: "2",
-    title: "15-минутный звонок",
-    description: "Находим узкое место и формулируем гипотезу",
-  },
-  {
-    number: "3",
-    title: "Получите план действий",
-    description: "Конкретные шаги и список проверенных вендоров под вашу задачу",
-  },
-]
-
-const benefits = [
-  "Разберём, где ИИ даст быстрый результат",
-  "Без давления и обязательств",
-  "Конкретные гипотезы, а не общие слова",
-  "Список проверенных вендоров под вашу задачу",
-  "Оценка потенциального ROI для вашего бизнеса",
-]
+import { PRICING } from "@/content"
 
 export function PricingSection() {
   return (
@@ -40,11 +15,11 @@ export function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <Card className="border-primary shadow-xl bg-gradient-to-b from-background to-primary/5">
             <CardHeader className="pb-4">
-              <CardTitle className="text-2xl">Что вы получите</CardTitle>
+              <CardTitle className="text-2xl">{PRICING.cardTitle}</CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-3 mb-8">
-                {benefits.map((benefit, index) => (
+                {PRICING.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-sm leading-relaxed">{benefit}</span>
@@ -52,13 +27,13 @@ export function PricingSection() {
                 ))}
               </ul>
               <Button size="lg" className="w-full shadow-lg shadow-primary/20" asChild>
-                <a href="#contact">Записаться на диагностику →</a>
+                <a href="#contact">{PRICING.ctaButton}</a>
               </Button>
             </CardContent>
           </Card>
 
           <div className="space-y-4">
-            {steps.map((step, index) => (
+            {PRICING.steps.map((step, index) => (
               <Card key={index} className="hover:border-primary/50 hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">

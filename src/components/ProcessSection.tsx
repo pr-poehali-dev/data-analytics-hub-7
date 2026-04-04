@@ -2,37 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import { Fragment } from "react"
 import Icon from "@/components/ui/icon"
-
-const steps = [
-  {
-    icon: "ScanSearch",
-    title: "Экспресс-аудит процессов",
-    description:
-      "Наш ИИ-архитектор изучает ваш бизнес и находит точки, где автоматизация даст максимальный ROI. Без воды и общих слов — только конкретные гипотезы.",
-    number: "01",
-  },
-  {
-    icon: "ListChecks",
-    title: "Подбор верифицированного решения",
-    description:
-      "Выбираем из закрытой базы 2–3 вендора, прошедших жёсткий технический и коммерческий аудит. Вы получаете готовое сравнение без маркетинговых обещаний.",
-    number: "02",
-  },
-  {
-    icon: "ShieldCheck",
-    title: "Безопасная сделка",
-    description:
-      "Фиксируем конкретный KPI в договоре. Оплата поступает на независимый банковский сервис безопасных сделок: средства не достаются никому до подписания акта приёмки.",
-    number: "03",
-  },
-  {
-    icon: "BarChart2",
-    title: "Контроль внедрения",
-    description:
-      "Мы следим за тем, чтобы ИИ работал как договорились. Только после подтверждения метрик рассчитываемся с вендором.",
-    number: "04",
-  },
-]
+import { PROCESS } from "@/content"
 
 export function ProcessSection() {
   return (
@@ -42,18 +12,19 @@ export function ProcessSection() {
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-10">
           <div className="inline-block mb-3 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-            Процесс
+            {PROCESS.badge}
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            От <span className="text-primary">аудита</span> до <span className="text-primary">внедрения</span>
+            {PROCESS.title} <span className="text-primary">{PROCESS.titleAccent1}</span> {PROCESS.titleMiddle}{" "}
+            <span className="text-primary">{PROCESS.titleAccent2}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
-            Четыре понятных шага, которые защищают ваш бюджет и обеспечивают результат.
+            {PROCESS.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {steps.map((step, index) => (
+          {PROCESS.steps.map((step, index) => (
             <Fragment key={index}>
               <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-background">
                 <div className="absolute top-0 right-0 text-[120px] font-bold bg-gradient-to-br from-primary/10 to-primary/5 bg-clip-text text-transparent leading-none p-4">
@@ -69,7 +40,7 @@ export function ProcessSection() {
                   <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                 </CardContent>
               </Card>
-              {index < steps.length - 1 && (
+              {index < PROCESS.steps.length - 1 && (
                 <div
                   className="hidden lg:flex items-center justify-center absolute top-1/2 -translate-y-1/2"
                   style={{ left: `${(index + 1) * 25 - 4}%` }}
