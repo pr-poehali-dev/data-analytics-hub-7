@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-muted/30 py-12 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-          <div className="flex flex-col items-center md:items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="flex flex-col items-center">
             <h3 className="text-xl font-bold mb-3">{COMPANY.name}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               {COMPANY.tagline}
@@ -14,8 +14,8 @@ export function Footer() {
             <p className="text-sm text-muted-foreground">{COMPANY.copyright}</p>
           </div>
 
-          <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-semibold mb-4">{FOOTER.navTitle}</h4>
+          <div className="flex flex-col items-center">
+            <h4 className="font-bold mb-4">{FOOTER.navTitle}</h4>
             <ul className="space-y-2">
               {FOOTER.links.map((link) => (
                 <li key={link.href}>
@@ -27,8 +27,8 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-semibold mb-4">{FOOTER.contactsTitle}</h4>
+          <div className="flex flex-col items-center">
+            <h4 className="font-bold mb-4">{FOOTER.contactsTitle}</h4>
             <a
               href={`tel:${COMPANY.phone}`}
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-4"

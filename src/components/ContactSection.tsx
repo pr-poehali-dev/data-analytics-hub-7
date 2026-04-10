@@ -1,5 +1,13 @@
 import type React from "react"
 import { useState } from "react"
+
+function renderBold(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  )
+}
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -195,7 +203,7 @@ export function ContactSection() {
               <CardContent className="p-6">
                 <h3 className="font-bold text-lg mb-2">{CONTACT.escrowCard.title}</h3>
                 <p className="text-sm opacity-90 leading-relaxed">
-                  {CONTACT.escrowCard.text}
+                  {renderBold(CONTACT.escrowCard.text)}
                 </p>
               </CardContent>
             </Card>
