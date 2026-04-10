@@ -3,6 +3,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Quote } from "lucide-react"
 import { TESTIMONIALS } from "@/content"
 
+function renderBold(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  )
+}
+
 export function TestimonialsSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -49,7 +57,7 @@ export function TestimonialsSection() {
                 <CardContent className="p-8">
                   <Quote className="h-8 w-8 text-primary mb-4" />
                   <p className="text-base sm:text-lg mb-6 leading-relaxed text-pretty min-h-[120px]">
-                    {testimonial.quote}
+                    {renderBold(testimonial.quote)}
                   </p>
                   <div>
                     <p className="font-semibold text-lg">{testimonial.name}</p>

@@ -2,6 +2,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Icon from "@/components/ui/icon"
 import { SERVICES } from "@/content"
 
+function renderBold(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={i}>{part.slice(2, -2)}</strong>
+      : part
+  )
+}
+
 export function ServicesSection() {
   return (
     <section id="services" className="py-14 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -32,7 +40,7 @@ export function ServicesSection() {
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
+                <CardDescription className="text-base leading-relaxed">{renderBold(service.description)}</CardDescription>
               </CardContent>
             </Card>
           ))}
