@@ -41,27 +41,27 @@ export function TestimonialsSection() {
   }, [])
 
   return (
-    <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
+    <section className="py-14 px-4 sm:px-6 lg:px-8 bg-muted/30 overflow-hidden">
       <div className="container mx-auto max-w-7xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 sm:mb-4 text-balance">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-balance">
           {TESTIMONIALS.title}
         </h2>
-        <p className="text-center text-sm sm:text-base text-muted-foreground mb-8 sm:mb-12 max-w-3xl mx-auto text-pretty leading-relaxed">
+        <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto text-pretty leading-relaxed">
           {TESTIMONIALS.subtitle}
         </p>
 
         <div className="relative">
-          <div ref={scrollRef} className="flex gap-4 sm:gap-6 overflow-x-hidden" style={{ scrollBehavior: "auto" }}>
+          <div ref={scrollRef} className="flex gap-6 overflow-x-hidden" style={{ scrollBehavior: "auto" }}>
             {[...TESTIMONIALS.items, ...TESTIMONIALS.items].map((testimonial, index) => (
-              <Card key={index} className="flex-shrink-0 w-[80vw] sm:w-[380px] lg:w-[450px] border-none shadow-lg">
-                <CardContent className="p-4 sm:p-6 lg:p-8">
-                  <Quote className="h-6 w-6 sm:h-8 sm:w-8 text-primary mb-3 sm:mb-4" />
-                  <p className="text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 leading-relaxed text-pretty min-h-[80px] sm:min-h-[120px]">
+              <Card key={index} className="flex-shrink-0 w-[90vw] sm:w-[450px] border-none shadow-lg">
+                <CardContent className="p-8">
+                  <Quote className="h-8 w-8 text-primary mb-4" />
+                  <p className="text-base sm:text-lg mb-6 leading-relaxed text-pretty min-h-[120px]">
                     {renderBold(testimonial.quote)}
                   </p>
                   <div>
-                    <p className="font-semibold text-base sm:text-lg">{testimonial.name}</p>
-                    <p className="text-muted-foreground text-xs sm:text-sm">{testimonial.role}</p>
+                    <p className="font-semibold text-lg">{testimonial.name}</p>
+                    <p className="text-muted-foreground text-sm">{testimonial.role}</p>
                   </div>
                 </CardContent>
               </Card>

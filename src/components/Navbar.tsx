@@ -22,8 +22,8 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-14 sm:h-16 items-center justify-between">
-          <a href="/" className="hover:opacity-80 transition-opacity flex-shrink-0">
+        <div className="flex h-16 items-center justify-between">
+          <a href="/" className="hover:opacity-80 transition-opacity">
             <Logo />
           </a>
 
@@ -35,14 +35,14 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-3">
             <a
               href={`tel:${COMPANY.phone}`}
               className="hidden md:block text-sm font-semibold hover:text-primary transition-colors"
             >
               {COMPANY.phoneDisplay}
             </a>
-            <Button size="sm" className="text-xs sm:text-sm px-3 sm:px-4 h-8 sm:h-9" asChild>
+            <Button size="sm" asChild>
               <a href="#contact">{NAVBAR.ctaButton}</a>
             </Button>
             <MobileMenu />
