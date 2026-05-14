@@ -12,7 +12,7 @@ export function PricingSection() {
       </div>
 
       <div className="container mx-auto max-w-5xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start">
           <Card className="border-primary shadow-xl bg-gradient-to-b from-background to-primary/5">
             <CardHeader className="pb-4">
               <CardTitle className="text-2xl">{PRICING.cardTitle}</CardTitle>
@@ -27,7 +27,7 @@ export function PricingSection() {
                 ))}
               </ul>
               <Button size="lg" className="w-full shadow-lg shadow-primary/20" asChild>
-                <a href="#contact">{PRICING.ctaButton}</a>
+                <a href="#contact" className="flex items-center justify-center">{PRICING.ctaButton}</a>
               </Button>
             </CardContent>
           </Card>

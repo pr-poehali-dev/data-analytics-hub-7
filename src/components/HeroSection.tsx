@@ -15,11 +15,11 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden py-10">
+    <section className="relative min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-x-hidden py-10">
       {/* Background glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-[700px] h-[500px] rounded-full blur-3xl animate-pulse"
+          className="absolute w-[300px] sm:w-[700px] h-[300px] sm:h-[500px] rounded-full blur-3xl animate-pulse"
           style={{
             top: "-15%",
             left: "50%",
@@ -92,24 +92,24 @@ export function HeroSection() {
         </p>
 
         {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up animate-delay-200 mb-10">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate-fade-in-up animate-delay-200 mb-10 w-full px-2 sm:px-0">
           <Button
             size="lg"
-            className="w-full sm:w-auto font-semibold px-8 py-5 text-base group shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all"
+            className="w-full sm:w-auto font-semibold px-6 sm:px-8 py-4 sm:py-5 text-base group shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all"
             asChild
           >
-            <a href="#contact">
+            <a href="#contact" className="flex items-center justify-center gap-2">
               {HERO.primaryButton}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
             </a>
           </Button>
           <Button
             size="lg"
             variant="outline"
-            className="w-full sm:w-auto border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary font-medium px-8 py-5 text-base bg-transparent"
+            className="w-full sm:w-auto border border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary font-medium px-6 sm:px-8 py-4 sm:py-5 text-base bg-transparent"
             asChild
           >
-            <a href="#process">{HERO.secondaryButton}</a>
+            <a href="#process" className="flex items-center justify-center">{HERO.secondaryButton}</a>
           </Button>
         </div>
 

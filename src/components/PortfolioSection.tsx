@@ -18,14 +18,14 @@ export function PortfolioSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {PORTFOLIO.cases.map((item, index) => (
             <Card
               key={index}
               className="group overflow-hidden border border-border hover:border-primary transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <CardContent className="p-0">
-                <div className={`bg-gradient-to-br ${item.color} p-6 border-b border-border`}>
+                <div className={`bg-gradient-to-br ${item.color} p-4 sm:p-6 border-b border-border`}>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
                       <Icon name={item.icon} className="h-5 w-5" fallback="Sparkles" />
@@ -37,7 +37,7 @@ export function PortfolioSection() {
                     <span className="text-muted-foreground mb-1">{item.period}</span>
                   </div>
                 </div>
-                <div className="p-6 space-y-4">
+                <div className="p-4 sm:p-6 space-y-4">
                   <div>
                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Проблема</p>
                     <p className="text-sm leading-relaxed">{item.problem}</p>

@@ -53,8 +53,8 @@ export function TestimonialsSection() {
         <div className="relative">
           <div ref={scrollRef} className="flex gap-6 overflow-x-hidden" style={{ scrollBehavior: "auto" }}>
             {[...TESTIMONIALS.items, ...TESTIMONIALS.items].map((testimonial, index) => (
-              <Card key={index} className="flex-shrink-0 w-[90vw] sm:w-[450px] border-none shadow-lg">
-                <CardContent className="p-8">
+              <Card key={index} className="flex-shrink-0 w-[85vw] sm:w-[400px] border-none shadow-lg">
+                <CardContent className="p-5 sm:p-8">
                   <Quote className="h-8 w-8 text-primary mb-4" />
                   <p className="text-base sm:text-lg mb-6 leading-relaxed text-pretty min-h-[120px]">
                     {renderBold(testimonial.quote)}

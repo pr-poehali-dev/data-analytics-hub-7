@@ -141,8 +141,8 @@ export function ContactSection() {
                       <p className="text-sm text-destructive">{errorMsg}</p>
                     )}
                     <div>
-                      <Button type="submit" size="lg" className="w-full sm:w-auto group" disabled={status === "loading"}>
-                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <Button type="submit" size="lg" className="w-full group" disabled={status === "loading"}>
+                        <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                         {status === "loading" ? CONTACT.submittingButton : CONTACT.submitButton}
                       </Button>
                       <p className="text-xs text-muted-foreground mt-3">
@@ -159,10 +159,10 @@ export function ContactSection() {
             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
+                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                     <Phone className="h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h3 className="font-semibold mb-2">{CONTACT.callCard.title}</h3>
                     <a
                       href={`tel:${COMPANY.phone}`}
@@ -171,8 +171,8 @@ export function ContactSection() {
                       {COMPANY.phoneDisplay}
                     </a>
                     <Button size="sm" asChild className="w-full">
-                      <a href={`tel:${COMPANY.phone}`}>
-                        <Phone className="mr-2 h-3.5 w-3.5" />
+                      <a href={`tel:${COMPANY.phone}`} className="flex items-center justify-center gap-2">
+                        <Phone className="h-3.5 w-3.5 flex-shrink-0" />
                         {CONTACT.callCard.button}
                       </a>
                     </Button>
@@ -184,10 +184,10 @@ export function ContactSection() {
             <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110">
+                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 group-hover:scale-110 flex-shrink-0">
                     <Clock className="h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h3 className="font-semibold mb-1">{CONTACT.hoursCard.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {CONTACT.hoursCard.hours}

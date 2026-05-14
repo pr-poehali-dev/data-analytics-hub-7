@@ -49,13 +49,13 @@ export function AboutSection() {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
           {ABOUT.stats.map((stat, index) => (
-            <div key={index} className="text-center group cursor-default">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
+            <div key={index} className="text-center group cursor-default px-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                 {stat.number}
               </div>
-              <div className="text-muted-foreground font-medium">{stat.label}</div>
+              <div className="text-muted-foreground font-medium text-sm sm:text-base">{stat.label}</div>
             </div>
           ))}
         </div>
